@@ -3,6 +3,8 @@ import PublicRoute from "@/components/layout/PublicRoute"
 import { createBrowserRouter } from "react-router-dom"
 import LoginPage from "@/page/auth/LoginPage"
 import RegisterPage from "@/page/auth/RegisterPage"
+import HomePage from "@/page/main/HomePage"
+import ProfilePage from "@/page/main/ProfilePage"
 
 const router = createBrowserRouter([
   {
@@ -11,25 +13,13 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <div className="text-center py-12">
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">Welcome to Twitter Clone</h1>
-          <p className="text-gray-600">This is your home feed. Posts will appear here.</p>
-        </div>,
+        element: <HomePage />,
       },
       {
         path: "/profile",
-        element: <div className="text-center py-12">
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">Profile</h1>
-          <p className="text-gray-600">Your profile page is coming soon.</p>
-        </div>,
+        element: <ProfilePage />,
       },
-      {
-        path: "/settings",
-        element: <div className="text-center py-12">
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">Settings</h1>
-          <p className="text-gray-600">Settings page is coming soon.</p>
-        </div>,
-      },
+      
     ],
 
   },

@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Home, User, Settings, Plus, LogOut } from "lucide-react";
+import { Home, User, Plus, LogOut } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "@/hooks/useAppDispatch";
 import { logout } from "@/store/slice/auth.slice";
 import ButtonUI from "@/components/ui/ButtonUI";
@@ -26,11 +26,7 @@ function Sidebar() {
       icon: User,
       path: "/profile",
     },
-    {
-      name: "Settings",
-      icon: Settings,
-      path: "/settings",
-    },
+   
   ];
 
   const isActive = (path: string) => {
