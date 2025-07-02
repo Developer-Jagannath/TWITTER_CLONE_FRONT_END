@@ -20,7 +20,7 @@ export interface ILoginPayload {
 }
 
 export interface IRegisterPayload {
-    name: string
+    username: string
     email: string
     password: string
 }
@@ -64,4 +64,12 @@ export interface IRegisterResponse {
         refreshToken: string
     }
     error?: IApiError
+}
+
+export interface IAuthState {
+    user: User | null
+    accessToken: string
+    refreshToken: string
+    loading: boolean
+    error: string | null
 }

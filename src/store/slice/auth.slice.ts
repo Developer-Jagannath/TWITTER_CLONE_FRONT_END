@@ -1,16 +1,13 @@
-import type { User } from "@/types"
+import type { IAuthState, User } from "@/types"
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit"
 
-interface AuthState {
-    user: User | null
-    accessToken: string
-    refreshToken: string
-}
 
-const initialState: AuthState = {
+const initialState: IAuthState = {
     user: null,
     accessToken: "",
     refreshToken: "",
+    loading: false,
+    error: null,
 }
 
 const authSlice = createSlice({
@@ -21,16 +18,35 @@ const authSlice = createSlice({
             state.user = action.payload.user
             state.accessToken = action.payload.accessToken
             state.refreshToken = action.payload.refreshToken
+            state.loading = false
+            state.error = null
         },
         logout: (state) => {
             state.user = null
             state.accessToken = ""
             state.refreshToken = ""
+            state.loading = false
+            state.error = null
+        },
+        setLoading: (state, action: PayloadAction<boolean>) => {
+            state.loading = action.payload
+            if (action.payload) {
+                state.error = null
+            }
+        },
+        setError: (state, action: PayloadAction<string | null>) => {
+            state.error = action.payload
+            if (action.payload) {
+                state.loading = false
+            }
+        },
+        clearError: (state) => {
+            state.error = null
         },
     },
 })
 
-export const { setUser, logout } = authSlice.actions
+export const { setUser, logout, setLoading, setError, clearError } = authSlice.actions
 export default authSlice.reducer
 
 

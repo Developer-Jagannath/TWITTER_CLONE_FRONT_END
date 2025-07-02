@@ -1,6 +1,8 @@
 import ProtectedRoute from "@/components/layout/ProtectedRoute"
 import PublicRoute from "@/components/layout/PublicRoute"
 import { createBrowserRouter } from "react-router-dom"
+import LoginPage from "@/page/auth/LoginPage"
+import RegisterPage from "@/page/auth/RegisterPage"
 
 const router = createBrowserRouter([
   {
@@ -22,11 +24,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/login",
-        element: <div>Login Page</div>,
+        element: <LoginPage />,
       },
       {
         path: "/register",
-        element: <div>Register Page</div>,
+        element: <RegisterPage />,
       },
     ],
   },
