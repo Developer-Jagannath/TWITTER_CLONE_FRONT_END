@@ -3,6 +3,7 @@
 
 import { Navigate, Outlet } from "react-router-dom";
 import { useAppSelector } from "@/hooks/useAppSelector";
+import AppLayout from "./AppLayout";
 
 const ProtectedRoute = () => {
     const user = useAppSelector((state) => state.reducer.auth.user)
@@ -13,7 +14,11 @@ const ProtectedRoute = () => {
     }
 
     // if user is logged in, render the nested protected routes
-    return <Outlet />;
+    return (
+        <AppLayout>
+            <Outlet />
+        </AppLayout>
+    )
 };
 
 export default ProtectedRoute;
