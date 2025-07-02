@@ -1,7 +1,7 @@
 // src/components/ProtectedRoute.tsx
 
 
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useAppSelector } from "@/hooks/useAppSelector";
 import AppLayout from "./AppLayout";
 
@@ -15,9 +15,7 @@ const ProtectedRoute = () => {
 
     // if user is logged in, render the nested protected routes
     return (
-        <AppLayout>
-            <Outlet />
-        </AppLayout>
+        <AppLayout />
     )
 };
 

@@ -1,15 +1,20 @@
+import { Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
 
-const AppLayout = ({ children }: { children: React.ReactNode }) => {
+function AppLayout() {
   return (
-    <div className="flex min-h-screen w-full">
+    <div className="flex h-screen bg-gray-50">
+      {/* Sidebar */}
       <Sidebar />
-      <main className="flex-1 overflow-y-auto">
-        {children}
+      
+      {/* Main Content */}
+      <main className="flex-1 overflow-auto">
+        <div className="max-w-4xl mx-auto p-6">
+          <Outlet />
+        </div>
       </main>
-      {/* You can add <RightSidebar /> here if needed */}
     </div>
   );
-};
+}
 
-export default AppLayout;
+export default AppLayout; 

@@ -21,7 +21,7 @@ const LoginPage = () => {
     const { loading, error, user } = useAppSelector((state) => state.reducer.auth);
     const [showPassword, setShowPassword] = useState(false);
     const [showError, setShowError] = useState(true);
-    console.log("error", error)
+
     const {
         register,
         handleSubmit,

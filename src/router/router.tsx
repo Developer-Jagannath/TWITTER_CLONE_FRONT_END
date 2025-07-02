@@ -6,18 +6,32 @@ import RegisterPage from "@/page/auth/RegisterPage"
 
 const router = createBrowserRouter([
   {
-    element: <ProtectedRoute />, // protect all child routes here
+    element: <ProtectedRoute />,
+
     children: [
       {
         path: "/",
-        element: <div>Home Page</div>,
+        element: <div className="text-center py-12">
+          <h1 className="text-3xl font-bold text-gray-900 mb-4">Welcome to Twitter Clone</h1>
+          <p className="text-gray-600">This is your home feed. Posts will appear here.</p>
+        </div>,
       },
       {
         path: "/profile",
-        element: <div>Profile Page</div>,
+        element: <div className="text-center py-12">
+          <h1 className="text-3xl font-bold text-gray-900 mb-4">Profile</h1>
+          <p className="text-gray-600">Your profile page is coming soon.</p>
+        </div>,
       },
-      // add more protected routes here
+      {
+        path: "/settings",
+        element: <div className="text-center py-12">
+          <h1 className="text-3xl font-bold text-gray-900 mb-4">Settings</h1>
+          <p className="text-gray-600">Settings page is coming soon.</p>
+        </div>,
+      },
     ],
+
   },
   {
     element: <PublicRoute />,
@@ -32,7 +46,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-
 ])
 
 export default router
