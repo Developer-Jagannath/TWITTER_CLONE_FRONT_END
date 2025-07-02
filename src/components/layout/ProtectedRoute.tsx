@@ -2,9 +2,10 @@
 
 
 import { Navigate, Outlet } from "react-router-dom";
+import { useAppSelector } from "@/hooks/useAppSelector";
 
 const ProtectedRoute = () => {
-    const user = true // replace with your actual auth check
+    const user = useAppSelector((state) => state.reducer.auth.user)
 
     if (!user) {
         // if user is not logged in, redirect to login
